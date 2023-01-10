@@ -1,0 +1,102 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+
+class ComplexNumbers
+{
+	public:
+		double realNumber ;
+		double imaginaryNumber ;
+public:
+ComplexNumbers()
+{
+realNumber = imaginaryNumber = 0 ;
+}
+ComplexNumbers(double realNumber)
+{
+this->realNumber = realNumber ;
+imaginaryNumber = 0 ;
+}
+ComplexNumbers(double realNumber , double imaginaryNumber)
+{
+this->realNumber = realNumber ;
+this->imaginaryNumber = imaginaryNumber ;
+}
+ComplexNumbers(const ComplexNumbers & obj)
+{
+realNumber = obj.realNumber ;
+imaginaryNumber = obj.imaginaryNumber ;
+}
+
+	public:
+		void complexAddition(ComplexNumbers c1 , ComplexNumbers c2)
+		{
+			
+			this->realNumber = c1.realNumber + c1.imaginaryNumber;
+			this->imaginaryNumber = c1.imaginaryNumber + c1.imaginaryNumber;
+			
+				
+		}
+		void complexSubtraction(ComplexNumbers c1 , ComplexNumbers c2)
+		{
+			
+			this->realNumber = c1.realNumber - c1.imaginaryNumber;
+			this->imaginaryNumber = c1.imaginaryNumber - c1.imaginaryNumber;
+			
+			
+		}
+		void complexMultiply(ComplexNumbers c1 , ComplexNumbers c2)
+		{
+			
+			this->realNumber = c1.realNumber * c1.imaginaryNumber;
+			this->imaginaryNumber = c1.imaginaryNumber * c1.imaginaryNumber;
+			
+			
+		}
+		void complexDivide(ComplexNumbers c1 , ComplexNumbers c2)
+		{
+			
+			this->realNumber = (c1.realNumber * (-c2.realNumber));
+			this->imaginaryNumber = (c1.imaginaryNumber * (-c2.imaginaryNumber));
+			
+		}
+		
+
+	void print()
+	{
+		cout << this->realNumber << " " << this->imaginaryNumber <<"i" << endl;
+	}
+};
+
+main()
+{
+	cout << "\t\t\t"<< "-----------< Input Data >--------------" << endl;
+	ComplexNumbers a1 , a2;
+	cout << "Enter First complex Number.";
+	cin >> a1.realNumber;
+	cout << "Enter First Imagiary Number.";
+	cin >> a1.imaginaryNumber;
+	cout << "Enter Second complex Number.";
+	cin >> a2.realNumber;
+	cout << "Enter Second Imagiary Number.";
+	cin >> a2.imaginaryNumber;
+	
+	system("cls");
+	// Object for Sum
+		ComplexNumbers add;
+		add.complexAddition(a1 , a2);
+		add.print();
+	// Object for Subtraction
+		ComplexNumbers sub;
+		sub.complexSubtraction(a1 , a2);
+		sub.print();
+	// Object for Multiplication
+		ComplexNumbers mul;
+		mul.complexMultiply(a1 , a2);
+		mul.print();
+	// Object for division
+		ComplexNumbers div;
+		div.complexDivide(a1 , a2);
+		div.print();
+		
+}
